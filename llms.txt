@@ -1,0 +1,304 @@
+# fast-check Documentation
+
+> Complete documentation for fast-check - Property-based testing framework for JavaScript/TypeScript
+
+This file contains links to documentation sections following the llmstxt.org standard.
+
+## Table of Contents
+
+- [Fake data](https://v4.fast-check.dev/advanced/fake-data.md): Replace random fake data by fake data backed by property based
+- [Fuzzing](https://v4.fast-check.dev/advanced/fuzzing.md): Turn fast-check into a fuzzer
+- [Advanced](https://v4.fast-check.dev/docs/advanced.md): Techniques that go beyond a single property — model-based testing, race conditions, fuzzing loops and realistic fake data generation.
+- [Model based testing](https://v4.fast-check.dev/advanced/model-based-testing.md): Turn fast-check into a crazy QA
+- [Race conditions](https://v4.fast-check.dev/advanced/race-conditions.md): Easily detect race conditions in your JavaScript code
+- [AI-Powered Testing 🧙](https://v4.fast-check.dev/docs/ai-powered-testing.md): Enhance your testing workflow with AI assistance while maintaining high-quality test coverage using fast-check.
+- [Abstract Class: Arbitrary\<T\>](https://v4.fast-check.dev/docs/api/classes/Arbitrary.md): Defined in: [packages/fast-check/src/check/arbitrary/definition/Arbitrary.ts:14](https://github.com/dubzzz/fast-check/blob/c3cd4eb5c42e40bc26a1b74d...
+- [Class: PreconditionFailure](https://v4.fast-check.dev/docs/api/classes/PreconditionFailure.md): Defined in: [packages/fast-check/src/check/precondition/PreconditionFailure.ts:9](https://github.com/dubzzz/fast-check/blob/c3cd4eb5c42e40bc26a1b74...
+- [Class: Random](https://v4.fast-check.dev/docs/api/classes/Random.md): Defined in: [packages/fast-check/src/random/generator/Random.ts:17](https://github.com/dubzzz/fast-check/blob/c3cd4eb5c42e40bc26a1b74d277eefb0b2c0a...
+- [Class: Stream\<T\>](https://v4.fast-check.dev/docs/api/classes/Stream.md): Defined in: [packages/fast-check/src/stream/Stream.ts:20](https://github.com/dubzzz/fast-check/blob/c3cd4eb5c42e40bc26a1b74d277eefb0b2c0a74c/packag...
+- [Class: Value\<T\>](https://v4.fast-check.dev/docs/api/classes/Value.md): Defined in: [packages/fast-check/src/check/arbitrary/definition/Value.ts:13](https://github.com/dubzzz/fast-check/blob/c3cd4eb5c42e40bc26a1b74d277e...
+- [Enumeration: ExecutionStatus](https://v4.fast-check.dev/docs/api/enumerations/ExecutionStatus.md): Defined in: [packages/fast-check/src/check/runner/reporter/ExecutionStatus.ts:6](https://github.com/dubzzz/fast-check/blob/c3cd4eb5c42e40bc26a1b74d...
+- [Enumeration: VerbosityLevel](https://v4.fast-check.dev/docs/api/enumerations/VerbosityLevel.md): Defined in: [packages/fast-check/src/check/runner/configuration/VerbosityLevel.ts:6](https://github.com/dubzzz/fast-check/blob/c3cd4eb5c42e40bc26a1...
+- [Function: afterEach()](https://v4.fast-check.dev/docs/api/functions/afterEach.md): > **afterEach**(`fn`): [`Plugin`](../type-aliases/Plugin.md)\<`unknown`\>
+- [Function: anything()](https://v4.fast-check.dev/docs/api/functions/anything.md): > **anything**(): [`Arbitrary`](../classes/Arbitrary.md)\<`unknown`\>
+- [Function: array()](https://v4.fast-check.dev/docs/api/functions/array.md): > **array**\<`T`\>(`arb`, `constraints?`): [`Arbitrary`](../classes/Arbitrary.md)\<`T`[]\>
+- [Function: assert()](https://v4.fast-check.dev/docs/api/functions/assert.md): > **assert**\<`Ts`\>(`property`, `params?`): `Promise`\<`void`\>
+- [Function: asyncDefaultReportMessage()](https://v4.fast-check.dev/docs/api/functions/asyncDefaultReportMessage.md): > **asyncDefaultReportMessage**\<`Ts`\>(`out`): `Promise`\<`undefined`\>
+- [Function: asyncModelRun()](https://v4.fast-check.dev/docs/api/functions/asyncModelRun.md): > **asyncModelRun**\<`Model`, `Real`, `CheckAsync`, `InitialModel`\>(`s`, `cmds`): `Promise`\<`void`\>
+- [Function: asyncProperty()](https://v4.fast-check.dev/docs/api/functions/asyncProperty.md): > **asyncProperty**\<`Ts`\>(...`args`): [`IAsyncPropertyWithHooks`](../interfaces/IAsyncPropertyWithHooks.md)\<`Ts`\>
+- [Function: asyncStringify()](https://v4.fast-check.dev/docs/api/functions/asyncStringify.md): > **asyncStringify**\<`Ts`\>(`value`): `Promise`\<`string`\>
+- [Function: base64String()](https://v4.fast-check.dev/docs/api/functions/base64String.md): > **base64String**(`constraints?`): [`Arbitrary`](../classes/Arbitrary.md)\<`string`\>
+- [Function: beforeEach()](https://v4.fast-check.dev/docs/api/functions/beforeEach.md): > **beforeEach**(`fn`): [`Plugin`](../type-aliases/Plugin.md)\<`unknown`\>
+- [Function: bigInt()](https://v4.fast-check.dev/docs/api/functions/bigInt.md): > **bigInt**(): [`Arbitrary`](../classes/Arbitrary.md)\<`bigint`\>
+- [Function: bigInt64Array()](https://v4.fast-check.dev/docs/api/functions/bigInt64Array.md): > **bigInt64Array**(`constraints?`): [`Arbitrary`](../classes/Arbitrary.md)\<`BigInt64Array`\<`ArrayBuffer`\>\>
+- [Function: bigUint64Array()](https://v4.fast-check.dev/docs/api/functions/bigUint64Array.md): > **bigUint64Array**(`constraints?`): [`Arbitrary`](../classes/Arbitrary.md)\<`BigUint64Array`\<`ArrayBuffer`\>\>
+- [Function: boolean()](https://v4.fast-check.dev/docs/api/functions/boolean.md): > **boolean**(): [`Arbitrary`](../classes/Arbitrary.md)\<`boolean`\>
+- [Function: chainUntil()](https://v4.fast-check.dev/docs/api/functions/chainUntil.md): > **chainUntil**\<`T`\>(`startArb`, `chainer`): [`Arbitrary`](../classes/Arbitrary.md)\<`T`\>
+- [Function: check()](https://v4.fast-check.dev/docs/api/functions/check.md): > **check**\<`Ts`\>(`property`, `params?`): `Promise`\<[`RunDetails`](../type-aliases/RunDetails.md)\<`Ts`\>\>
+- [Function: clone()](https://v4.fast-check.dev/docs/api/functions/clone.md): > **clone**\<`T`, `N`\>(`arb`, `numValues`): [`Arbitrary`](../classes/Arbitrary.md)\<[`CloneValue`](../type-aliases/CloneValue.md)\<`T`, `N`, \[\]\>\>
+- [Function: cloneIfNeeded()](https://v4.fast-check.dev/docs/api/functions/cloneIfNeeded.md): > **cloneIfNeeded**\<`T`\>(`instance`): `T`
+- [Function: commands()](https://v4.fast-check.dev/docs/api/functions/commands.md): > **commands**\<`Model`, `Real`, `CheckAsync`\>(`commandArbs`, `constraints?`): [`Arbitrary`](../classes/Arbitrary.md)\<`Iterable`\<[`AsyncCommand`...
+- [Function: compareBooleanFunc()](https://v4.fast-check.dev/docs/api/functions/compareBooleanFunc.md): > **compareBooleanFunc**\<`T`\>(): [`Arbitrary`](../classes/Arbitrary.md)\<(`a`, `b`) => `boolean`\>
+- [Function: compareFunc()](https://v4.fast-check.dev/docs/api/functions/compareFunc.md): > **compareFunc**\<`T`\>(): [`Arbitrary`](../classes/Arbitrary.md)\<(`a`, `b`) => `number`\>
+- [Function: configureGlobal()](https://v4.fast-check.dev/docs/api/functions/configureGlobal.md): > **configureGlobal**(`parameters`): `void`
+- [Function: constant()](https://v4.fast-check.dev/docs/api/functions/constant.md): > **constant**\<`T`\>(`value`): [`Arbitrary`](../classes/Arbitrary.md)\<`T`\>
+- [Function: constantFrom()](https://v4.fast-check.dev/docs/api/functions/constantFrom.md): > **constantFrom**\<`T`\>(...`values`): [`Arbitrary`](../classes/Arbitrary.md)\<`T`\>
+- [Function: context()](https://v4.fast-check.dev/docs/api/functions/context.md): > **context**(): [`Arbitrary`](../classes/Arbitrary.md)\<[`ContextValue`](../interfaces/ContextValue.md)\>
+- [Function: createDepthIdentifier()](https://v4.fast-check.dev/docs/api/functions/createDepthIdentifier.md): > **createDepthIdentifier**(): [`DepthIdentifier`](../type-aliases/DepthIdentifier.md)
+- [Function: date()](https://v4.fast-check.dev/docs/api/functions/date.md): > **date**(`constraints?`): [`Arbitrary`](../classes/Arbitrary.md)\<`Date`\>
+- [Function: defaultReportMessage()](https://v4.fast-check.dev/docs/api/functions/defaultReportMessage.md): > **defaultReportMessage**\<`Ts`\>(`out`): `undefined`
+- [Function: dictionary()](https://v4.fast-check.dev/docs/api/functions/dictionary.md): > **dictionary**\<`T`\>(`keyArb`, `valueArb`, `constraints?`): [`Arbitrary`](../classes/Arbitrary.md)\<`Record`\<`string`, `T`\>\>
+- [Function: domain()](https://v4.fast-check.dev/docs/api/functions/domain.md): > **domain**(`constraints?`): [`Arbitrary`](../classes/Arbitrary.md)\<`string`\>
+- [Function: double()](https://v4.fast-check.dev/docs/api/functions/double.md): > **double**(`constraints?`): [`Arbitrary`](../classes/Arbitrary.md)\<`number`\>
+- [Function: emailAddress()](https://v4.fast-check.dev/docs/api/functions/emailAddress.md): > **emailAddress**(`constraints?`): [`Arbitrary`](../classes/Arbitrary.md)\<`string`\>
+- [Function: entityGraph()](https://v4.fast-check.dev/docs/api/functions/entityGraph.md): > **entityGraph**\<`TEntityFields`, `TEntityRelations`\>(`arbitraries`, `relations`, `constraints?`): [`Arbitrary`](../classes/Arbitrary.md)\<[`Ent...
+- [Function: falsy()](https://v4.fast-check.dev/docs/api/functions/falsy.md): > **falsy**\<`TConstraints`\>(`constraints?`): [`Arbitrary`](../classes/Arbitrary.md)\<[`FalsyValue`](../type-aliases/FalsyValue.md)\<`TConstraints...
+- [Function: float()](https://v4.fast-check.dev/docs/api/functions/float.md): > **float**(`constraints?`): [`Arbitrary`](../classes/Arbitrary.md)\<`number`\>
+- [Function: float32Array()](https://v4.fast-check.dev/docs/api/functions/float32Array.md): > **float32Array**(`constraints?`): [`Arbitrary`](../classes/Arbitrary.md)\<`Float32Array`\<`ArrayBuffer`\>\>
+- [Function: float64Array()](https://v4.fast-check.dev/docs/api/functions/float64Array.md): > **float64Array**(`constraints?`): [`Arbitrary`](../classes/Arbitrary.md)\<`Float64Array`\<`ArrayBuffer`\>\>
+- [Function: func()](https://v4.fast-check.dev/docs/api/functions/func.md): > **func**\<`TArgs`, `TOut`\>(`arb`): [`Arbitrary`](../classes/Arbitrary.md)\<(...`args`) => `TOut`\>
+- [Function: gen()](https://v4.fast-check.dev/docs/api/functions/gen.md): > **gen**(): [`Arbitrary`](../classes/Arbitrary.md)\<[`GeneratorValue`](../type-aliases/GeneratorValue.md)\>
+- [Function: getDepthContextFor()](https://v4.fast-check.dev/docs/api/functions/getDepthContextFor.md): > **getDepthContextFor**(`contextMeta`): [`DepthContext`](../type-aliases/DepthContext.md)
+- [Function: hasAsyncToStringMethod()](https://v4.fast-check.dev/docs/api/functions/hasAsyncToStringMethod.md): > **hasAsyncToStringMethod**\<`T`\>(`instance`): `instance is T & WithAsyncToStringMethod`
+- [Function: hasCloneMethod()](https://v4.fast-check.dev/docs/api/functions/hasCloneMethod.md): > **hasCloneMethod**\<`T`\>(`instance`): `instance is WithCloneMethod<T>`
+- [Function: hasToStringMethod()](https://v4.fast-check.dev/docs/api/functions/hasToStringMethod.md): > **hasToStringMethod**\<`T`\>(`instance`): `instance is T & WithToStringMethod`
+- [Function: hash()](https://v4.fast-check.dev/docs/api/functions/hash.md): > **hash**(`repr`): `number`
+- [Function: ignoreEqualValues()](https://v4.fast-check.dev/docs/api/functions/ignoreEqualValues.md): > **ignoreEqualValues**(): [`Plugin`](../type-aliases/Plugin.md)\<`unknown`\>
+- [Function: infiniteStream()](https://v4.fast-check.dev/docs/api/functions/infiniteStream.md): > **infiniteStream**\<`T`\>(`arb`, `constraints?`): [`Arbitrary`](../classes/Arbitrary.md)\<[`Stream`](../classes/Stream.md)\<`T`\>\>
+- [Function: installGlobalPlugin()](https://v4.fast-check.dev/docs/api/functions/installGlobalPlugin.md): > **installGlobalPlugin**(`plugin`): `void`
+- [Function: int16Array()](https://v4.fast-check.dev/docs/api/functions/int16Array.md): > **int16Array**(`constraints?`): [`Arbitrary`](../classes/Arbitrary.md)\<`Int16Array`\<`ArrayBuffer`\>\>
+- [Function: int32Array()](https://v4.fast-check.dev/docs/api/functions/int32Array.md): > **int32Array**(`constraints?`): [`Arbitrary`](../classes/Arbitrary.md)\<`Int32Array`\<`ArrayBuffer`\>\>
+- [Function: int8Array()](https://v4.fast-check.dev/docs/api/functions/int8Array.md): > **int8Array**(`constraints?`): [`Arbitrary`](../classes/Arbitrary.md)\<`Int8Array`\<`ArrayBuffer`\>\>
+- [Function: integer()](https://v4.fast-check.dev/docs/api/functions/integer.md): > **integer**(`constraints?`): [`Arbitrary`](../classes/Arbitrary.md)\<`number`\>
+- [Function: interruptAfterTimeLimit()](https://v4.fast-check.dev/docs/api/functions/interruptAfterTimeLimit.md): > **interruptAfterTimeLimit**(`timeLimitMs`, `options?`): [`Plugin`](../type-aliases/Plugin.md)\<`unknown`\>
+- [Function: ipV4()](https://v4.fast-check.dev/docs/api/functions/ipV4.md): > **ipV4**(): [`Arbitrary`](../classes/Arbitrary.md)\<`string`\>
+- [Function: ipV4Extended()](https://v4.fast-check.dev/docs/api/functions/ipV4Extended.md): > **ipV4Extended**(): [`Arbitrary`](../classes/Arbitrary.md)\<`string`\>
+- [Function: ipV6()](https://v4.fast-check.dev/docs/api/functions/ipV6.md): > **ipV6**(): [`Arbitrary`](../classes/Arbitrary.md)\<`string`\>
+- [Function: json()](https://v4.fast-check.dev/docs/api/functions/json.md): > **json**(`constraints?`): [`Arbitrary`](../classes/Arbitrary.md)\<`string`\>
+- [Function: jsonValue()](https://v4.fast-check.dev/docs/api/functions/jsonValue.md): > **jsonValue**(`constraints?`): [`Arbitrary`](../classes/Arbitrary.md)\<[`JsonValue`](../type-aliases/JsonValue.md)\>
+- [Function: letrec()](https://v4.fast-check.dev/docs/api/functions/letrec.md): > **letrec**\<`T`\>(`builder`): [`LetrecValue`](../type-aliases/LetrecValue.md)\<`T`\>
+- [Function: limitShrink()](https://v4.fast-check.dev/docs/api/functions/limitShrink.md): > **limitShrink**\<`T`\>(`arbitrary`, `maxShrinks`): [`Arbitrary`](../classes/Arbitrary.md)\<`T`\>
+- [Function: lorem()](https://v4.fast-check.dev/docs/api/functions/lorem.md): > **lorem**(`constraints?`): [`Arbitrary`](../classes/Arbitrary.md)\<`string`\>
+- [Function: map()](https://v4.fast-check.dev/docs/api/functions/map.md): > **map**\<`K`, `V`\>(`keyArb`, `valueArb`, `constraints?`): [`Arbitrary`](../classes/Arbitrary.md)\<`Map`\<`K`, `V`\>\>
+- [Function: mapToConstant()](https://v4.fast-check.dev/docs/api/functions/mapToConstant.md): > **mapToConstant**\<`T`\>(...`entries`): [`Arbitrary`](../classes/Arbitrary.md)\<`T`\>
+- [Function: maxSafeInteger()](https://v4.fast-check.dev/docs/api/functions/maxSafeInteger.md): > **maxSafeInteger**(): [`Arbitrary`](../classes/Arbitrary.md)\<`number`\>
+- [Function: maxSafeNat()](https://v4.fast-check.dev/docs/api/functions/maxSafeNat.md): > **maxSafeNat**(): [`Arbitrary`](../classes/Arbitrary.md)\<`number`\>
+- [Function: memo()](https://v4.fast-check.dev/docs/api/functions/memo.md): > **memo**\<`T`\>(`builder`): [`Memo`](../type-aliases/Memo.md)\<`T`\>
+- [Function: mixedCase()](https://v4.fast-check.dev/docs/api/functions/mixedCase.md): > **mixedCase**(`stringArb`, `constraints?`): [`Arbitrary`](../classes/Arbitrary.md)\<`string`\>
+- [Function: modelRun()](https://v4.fast-check.dev/docs/api/functions/modelRun.md): > **modelRun**\<`Model`, `Real`, `InitialModel`\>(`s`, `cmds`): `void`
+- [Function: nat()](https://v4.fast-check.dev/docs/api/functions/nat.md): > **nat**(): [`Arbitrary`](../classes/Arbitrary.md)\<`number`\>
+- [Function: noBias()](https://v4.fast-check.dev/docs/api/functions/noBias.md): > **noBias**\<`T`\>(`arb`): [`Arbitrary`](../classes/Arbitrary.md)\<`T`\>
+- [Function: noShrink()](https://v4.fast-check.dev/docs/api/functions/noShrink.md): > **noShrink**\<`T`\>(`arb`): [`Arbitrary`](../classes/Arbitrary.md)\<`T`\>
+- [Function: object()](https://v4.fast-check.dev/docs/api/functions/object.md): > **object**(): [`Arbitrary`](../classes/Arbitrary.md)\<`Record`\<`string`, `unknown`\>\>
+- [Function: oneof()](https://v4.fast-check.dev/docs/api/functions/oneof.md): > **oneof**\<`Ts`\>(...`arbs`): [`Arbitrary`](../classes/Arbitrary.md)\<[`OneOfValue`](../type-aliases/OneOfValue.md)\<`Ts`\>\>
+- [Function: option()](https://v4.fast-check.dev/docs/api/functions/option.md): > **option**\<`T`, `TNil`\>(`arb`, `constraints?`): [`Arbitrary`](../classes/Arbitrary.md)\<`T` \| `TNil`\>
+- [Function: pre()](https://v4.fast-check.dev/docs/api/functions/pre.md): > **pre**(`expectTruthy`): `asserts expectTruthy`
+- [Function: property()](https://v4.fast-check.dev/docs/api/functions/property.md): > **property**\<`Ts`\>(...`args`): [`IPropertyWithHooks`](../interfaces/IPropertyWithHooks.md)\<`Ts`\>
+- [Function: readConfigureGlobal()](https://v4.fast-check.dev/docs/api/functions/readConfigureGlobal.md): > **readConfigureGlobal**(): [`GlobalParameters`](../type-aliases/GlobalParameters.md)
+- [Function: record()](https://v4.fast-check.dev/docs/api/functions/record.md): > **record**\<`T`, `K`\>(`model`, `constraints?`): [`Arbitrary`](../classes/Arbitrary.md)\<\{ \[K in string \| number \| symbol\]: (Partial\<T\> & ...
+- [Function: resetConfigureGlobal()](https://v4.fast-check.dev/docs/api/functions/resetConfigureGlobal.md): > **resetConfigureGlobal**(): `void`
+- [Function: sample()](https://v4.fast-check.dev/docs/api/functions/sample.md): > **sample**\<`Ts`\>(`generator`, `params?`): `Ts`[]
+- [Function: scheduledModelRun()](https://v4.fast-check.dev/docs/api/functions/scheduledModelRun.md): > **scheduledModelRun**\<`Model`, `Real`, `CheckAsync`, `InitialModel`\>(`scheduler`, `s`, `cmds`): `Promise`\<`void`\>
+- [Function: scheduler()](https://v4.fast-check.dev/docs/api/functions/scheduler.md): > **scheduler**\<`TMetaData`\>(`constraints?`): [`Arbitrary`](../classes/Arbitrary.md)\<[`Scheduler`](../interfaces/Scheduler.md)\<`TMetaData`\>\>
+- [Function: schedulerFor()](https://v4.fast-check.dev/docs/api/functions/schedulerFor.md): > **schedulerFor**\<`TMetaData`\>(`constraints?`): (`_strs`, ...`ordering`) => [`Scheduler`](../interfaces/Scheduler.md)\<`TMetaData`\>
+- [Function: set()](https://v4.fast-check.dev/docs/api/functions/set.md): > **set**\<`T`\>(`arb`, `constraints?`): [`Arbitrary`](../classes/Arbitrary.md)\<`Set`\<`T`\>\>
+- [Function: shuffledSubarray()](https://v4.fast-check.dev/docs/api/functions/shuffledSubarray.md): > **shuffledSubarray**\<`T`\>(`originalArray`, `constraints?`): [`Arbitrary`](../classes/Arbitrary.md)\<`T`[]\>
+- [Function: skipEqualValues()](https://v4.fast-check.dev/docs/api/functions/skipEqualValues.md): > **skipEqualValues**(): [`Plugin`](../type-aliases/Plugin.md)\<`unknown`\>
+- [Function: sparseArray()](https://v4.fast-check.dev/docs/api/functions/sparseArray.md): > **sparseArray**\<`T`\>(`arb`, `constraints?`): [`Arbitrary`](../classes/Arbitrary.md)\<`T`[]\>
+- [Function: statistics()](https://v4.fast-check.dev/docs/api/functions/statistics.md): > **statistics**\<`Ts`\>(`generator`, `classify`, `params?`): `void`
+- [Function: stream()](https://v4.fast-check.dev/docs/api/functions/stream.md): > **stream**\<`T`\>(`g`): [`Stream`](../classes/Stream.md)\<`T`\>
+- [Function: string()](https://v4.fast-check.dev/docs/api/functions/string.md): > **string**(`constraints?`): [`Arbitrary`](../classes/Arbitrary.md)\<`string`\>
+- [Function: stringMatching()](https://v4.fast-check.dev/docs/api/functions/stringMatching.md): > **stringMatching**(`regex`, `constraints?`): [`Arbitrary`](../classes/Arbitrary.md)\<`string`\>
+- [Function: stringify()](https://v4.fast-check.dev/docs/api/functions/stringify.md): > **stringify**\<`Ts`\>(`value`): `string`
+- [Function: subarray()](https://v4.fast-check.dev/docs/api/functions/subarray.md): > **subarray**\<`T`\>(`originalArray`, `constraints?`): [`Arbitrary`](../classes/Arbitrary.md)\<`T`[]\>
+- [Function: timeout()](https://v4.fast-check.dev/docs/api/functions/timeout.md): > **timeout**(`timeMs`): [`Plugin`](../type-aliases/Plugin.md)\<`unknown`\>
+- [Function: tuple()](https://v4.fast-check.dev/docs/api/functions/tuple.md): > **tuple**\<`Ts`\>(...`arbs`): [`Arbitrary`](../classes/Arbitrary.md)\<`Ts`\>
+- [Function: uint16Array()](https://v4.fast-check.dev/docs/api/functions/uint16Array.md): > **uint16Array**(`constraints?`): [`Arbitrary`](../classes/Arbitrary.md)\<`Uint16Array`\<`ArrayBuffer`\>\>
+- [Function: uint32Array()](https://v4.fast-check.dev/docs/api/functions/uint32Array.md): > **uint32Array**(`constraints?`): [`Arbitrary`](../classes/Arbitrary.md)\<`Uint32Array`\<`ArrayBuffer`\>\>
+- [Function: uint8Array()](https://v4.fast-check.dev/docs/api/functions/uint8Array.md): > **uint8Array**(`constraints?`): [`Arbitrary`](../classes/Arbitrary.md)\<`Uint8Array`\<`ArrayBuffer`\>\>
+- [Function: uint8ClampedArray()](https://v4.fast-check.dev/docs/api/functions/uint8ClampedArray.md): > **uint8ClampedArray**(`constraints?`): [`Arbitrary`](../classes/Arbitrary.md)\<`Uint8ClampedArray`\<`ArrayBuffer`\>\>
+- [Function: ulid()](https://v4.fast-check.dev/docs/api/functions/ulid.md): > **ulid**(): [`Arbitrary`](../classes/Arbitrary.md)\<`string`\>
+- [Function: unbiased()](https://v4.fast-check.dev/docs/api/functions/unbiased.md): > **unbiased**(): [`Plugin`](../type-aliases/Plugin.md)\<`unknown`\>
+- [Function: uniqueArray()](https://v4.fast-check.dev/docs/api/functions/uniqueArray.md): > **uniqueArray**\<`T`, `U`\>(`arb`, `constraints?`): [`Arbitrary`](../classes/Arbitrary.md)\<`T`[]\>
+- [Function: uuid()](https://v4.fast-check.dev/docs/api/functions/uuid.md): > **uuid**(`constraints?`): [`Arbitrary`](../classes/Arbitrary.md)\<`string`\>
+- [Function: webAuthority()](https://v4.fast-check.dev/docs/api/functions/webAuthority.md): > **webAuthority**(`constraints?`): [`Arbitrary`](../classes/Arbitrary.md)\<`string`\>
+- [Function: webFragments()](https://v4.fast-check.dev/docs/api/functions/webFragments.md): > **webFragments**(`constraints?`): [`Arbitrary`](../classes/Arbitrary.md)\<`string`\>
+- [Function: webPath()](https://v4.fast-check.dev/docs/api/functions/webPath.md): > **webPath**(`constraints?`): [`Arbitrary`](../classes/Arbitrary.md)\<`string`\>
+- [Function: webQueryParameters()](https://v4.fast-check.dev/docs/api/functions/webQueryParameters.md): > **webQueryParameters**(`constraints?`): [`Arbitrary`](../classes/Arbitrary.md)\<`string`\>
+- [Function: webSegment()](https://v4.fast-check.dev/docs/api/functions/webSegment.md): > **webSegment**(`constraints?`): [`Arbitrary`](../classes/Arbitrary.md)\<`string`\>
+- [Function: webUrl()](https://v4.fast-check.dev/docs/api/functions/webUrl.md): > **webUrl**(`constraints?`): [`Arbitrary`](../classes/Arbitrary.md)\<`string`\>
+- [API Reference](https://v4.fast-check.dev/docs/api.md): | Enumeration | Description |
+- [Interface: ArrayConstraints](https://v4.fast-check.dev/docs/api/interfaces/ArrayConstraints.md): Defined in: [packages/fast-check/src/arbitrary/array.ts:15](https://github.com/dubzzz/fast-check/blob/c3cd4eb5c42e40bc26a1b74d277eefb0b2c0a74c/pack...
+- [Interface: AsyncCommand\<Model, Real, CheckAsync\>](https://v4.fast-check.dev/docs/api/interfaces/AsyncCommand.md): Defined in: [packages/fast-check/src/check/model/command/AsyncCommand.ts:10](https://github.com/dubzzz/fast-check/blob/c3cd4eb5c42e40bc26a1b74d277e...
+- [Interface: BigIntConstraints](https://v4.fast-check.dev/docs/api/interfaces/BigIntConstraints.md): Defined in: [packages/fast-check/src/arbitrary/bigInt.ts:10](https://github.com/dubzzz/fast-check/blob/c3cd4eb5c42e40bc26a1b74d277eefb0b2c0a74c/pac...
+- [Interface: Command\<Model, Real\>](https://v4.fast-check.dev/docs/api/interfaces/Command.md): Defined in: [packages/fast-check/src/check/model/command/Command.ts:10](https://github.com/dubzzz/fast-check/blob/c3cd4eb5c42e40bc26a1b74d277eefb0b...
+- [Interface: CommandsContraints](https://v4.fast-check.dev/docs/api/interfaces/CommandsContraints.md): Defined in: [packages/fast-check/src/check/model/commands/CommandsContraints.ts:8](https://github.com/dubzzz/fast-check/blob/c3cd4eb5c42e40bc26a1b7...
+- [Interface: ContextValue](https://v4.fast-check.dev/docs/api/interfaces/ContextValue.md): Defined in: [packages/fast-check/src/arbitrary/context.ts:10](https://github.com/dubzzz/fast-check/blob/c3cd4eb5c42e40bc26a1b74d277eefb0b2c0a74c/pa...
+- [Interface: DateConstraints](https://v4.fast-check.dev/docs/api/interfaces/DateConstraints.md): Defined in: [packages/fast-check/src/arbitrary/date.ts:18](https://github.com/dubzzz/fast-check/blob/c3cd4eb5c42e40bc26a1b74d277eefb0b2c0a74c/packa...
+- [Interface: DictionaryConstraints](https://v4.fast-check.dev/docs/api/interfaces/DictionaryConstraints.md): Defined in: [packages/fast-check/src/arbitrary/dictionary.ts:23](https://github.com/dubzzz/fast-check/blob/c3cd4eb5c42e40bc26a1b74d277eefb0b2c0a74c...
+- [Interface: DomainConstraints](https://v4.fast-check.dev/docs/api/interfaces/DomainConstraints.md): Defined in: [packages/fast-check/src/arbitrary/domain.ts:93](https://github.com/dubzzz/fast-check/blob/c3cd4eb5c42e40bc26a1b74d277eefb0b2c0a74c/pac...
+- [Interface: DoubleConstraints](https://v4.fast-check.dev/docs/api/interfaces/DoubleConstraints.md): Defined in: [packages/fast-check/src/arbitrary/double.ts:24](https://github.com/dubzzz/fast-check/blob/c3cd4eb5c42e40bc26a1b74d277eefb0b2c0a74c/pac...
+- [Interface: EmailAddressConstraints](https://v4.fast-check.dev/docs/api/interfaces/EmailAddressConstraints.md): Defined in: [packages/fast-check/src/arbitrary/emailAddress.ts:53](https://github.com/dubzzz/fast-check/blob/c3cd4eb5c42e40bc26a1b74d277eefb0b2c0a7...
+- [Interface: ExecutionTree\<Ts\>](https://v4.fast-check.dev/docs/api/interfaces/ExecutionTree.md): Defined in: [packages/fast-check/src/check/runner/reporter/ExecutionTree.ts:8](https://github.com/dubzzz/fast-check/blob/c3cd4eb5c42e40bc26a1b74d27...
+- [Interface: FalsyContraints](https://v4.fast-check.dev/docs/api/interfaces/FalsyContraints.md): Defined in: [packages/fast-check/src/arbitrary/falsy.ts:10](https://github.com/dubzzz/fast-check/blob/c3cd4eb5c42e40bc26a1b74d277eefb0b2c0a74c/pack...
+- [Interface: FloatConstraints](https://v4.fast-check.dev/docs/api/interfaces/FloatConstraints.md): Defined in: [packages/fast-check/src/arbitrary/float.ts:23](https://github.com/dubzzz/fast-check/blob/c3cd4eb5c42e40bc26a1b74d277eefb0b2c0a74c/pack...
+- [Interface: IAsyncProperty\<Ts\>](https://v4.fast-check.dev/docs/api/interfaces/IAsyncProperty.md): Defined in: [packages/fast-check/src/check/property/AsyncProperty.generic.ts:33](https://github.com/dubzzz/fast-check/blob/c3cd4eb5c42e40bc26a1b74d...
+- [Interface: IAsyncPropertyWithHooks\<Ts\>](https://v4.fast-check.dev/docs/api/interfaces/IAsyncPropertyWithHooks.md): Defined in: [packages/fast-check/src/check/property/AsyncProperty.generic.ts:40](https://github.com/dubzzz/fast-check/blob/c3cd4eb5c42e40bc26a1b74d...
+- [Interface: ICommand\<Model, Real, RunResult, CheckAsync\>](https://v4.fast-check.dev/docs/api/interfaces/ICommand.md): Defined in: [packages/fast-check/src/check/model/command/ICommand.ts:11](https://github.com/dubzzz/fast-check/blob/c3cd4eb5c42e40bc26a1b74d277eefb0...
+- [Interface: IProperty\<Ts\>](https://v4.fast-check.dev/docs/api/interfaces/IProperty.md): Defined in: [packages/fast-check/src/check/property/Property.generic.ts:31](https://github.com/dubzzz/fast-check/blob/c3cd4eb5c42e40bc26a1b74d277ee...
+- [Interface: IPropertyWithHooks\<Ts\>](https://v4.fast-check.dev/docs/api/interfaces/IPropertyWithHooks.md): Defined in: [packages/fast-check/src/check/property/Property.generic.ts:38](https://github.com/dubzzz/fast-check/blob/c3cd4eb5c42e40bc26a1b74d277ee...
+- [Interface: IRawProperty\<Ts, IsAsync\>](https://v4.fast-check.dev/docs/api/interfaces/IRawProperty.md): Defined in: [packages/fast-check/src/check/property/IRawProperty.ts:32](https://github.com/dubzzz/fast-check/blob/c3cd4eb5c42e40bc26a1b74d277eefb0b...
+- [Interface: IntegerConstraints](https://v4.fast-check.dev/docs/api/interfaces/IntegerConstraints.md): Defined in: [packages/fast-check/src/arbitrary/integer.ts:11](https://github.com/dubzzz/fast-check/blob/c3cd4eb5c42e40bc26a1b74d277eefb0b2c0a74c/pa...
+- [Interface: JsonSharedConstraints](https://v4.fast-check.dev/docs/api/interfaces/JsonSharedConstraints.md): Defined in: [packages/fast-check/src/arbitrary/\_internals/helpers/JsonConstraintsBuilder.ts:17](https://github.com/dubzzz/fast-check/blob/c3cd4eb5...
+- [Interface: LetrecTypedTie()\<T\>](https://v4.fast-check.dev/docs/api/interfaces/LetrecTypedTie.md): Defined in: [packages/fast-check/src/arbitrary/letrec.ts:23](https://github.com/dubzzz/fast-check/blob/c3cd4eb5c42e40bc26a1b74d277eefb0b2c0a74c/pac...
+- [Interface: LoremConstraints](https://v4.fast-check.dev/docs/api/interfaces/LoremConstraints.md): Defined in: [packages/fast-check/src/arbitrary/lorem.ts:21](https://github.com/dubzzz/fast-check/blob/c3cd4eb5c42e40bc26a1b74d277eefb0b2c0a74c/pack...
+- [Interface: MapConstraints](https://v4.fast-check.dev/docs/api/interfaces/MapConstraints.md): Defined in: [packages/fast-check/src/arbitrary/map.ts:18](https://github.com/dubzzz/fast-check/blob/c3cd4eb5c42e40bc26a1b74d277eefb0b2c0a74c/packag...
+- [Interface: MixedCaseConstraints](https://v4.fast-check.dev/docs/api/interfaces/MixedCaseConstraints.md): Defined in: [packages/fast-check/src/arbitrary/mixedCase.ts:10](https://github.com/dubzzz/fast-check/blob/c3cd4eb5c42e40bc26a1b74d277eefb0b2c0a74c/...
+- [Interface: NatConstraints](https://v4.fast-check.dev/docs/api/interfaces/NatConstraints.md): Defined in: [packages/fast-check/src/arbitrary/nat.ts:11](https://github.com/dubzzz/fast-check/blob/c3cd4eb5c42e40bc26a1b74d277eefb0b2c0a74c/packag...
+- [Interface: ObjectConstraints](https://v4.fast-check.dev/docs/api/interfaces/ObjectConstraints.md): Defined in: [packages/fast-check/src/arbitrary/\_internals/helpers/QualifiedObjectConstraints.ts:16](https://github.com/dubzzz/fast-check/blob/c3cd...
+- [Interface: OptionConstraints\<TNil\>](https://v4.fast-check.dev/docs/api/interfaces/OptionConstraints.md): Defined in: [packages/fast-check/src/arbitrary/option.ts:14](https://github.com/dubzzz/fast-check/blob/c3cd4eb5c42e40bc26a1b74d277eefb0b2c0a74c/pac...
+- [Interface: Parameters\<T\>](https://v4.fast-check.dev/docs/api/interfaces/Parameters.md): Defined in: [packages/fast-check/src/check/runner/configuration/Parameters.ts:12](https://github.com/dubzzz/fast-check/blob/c3cd4eb5c42e40bc26a1b74...
+- [Interface: RunDetailsCommon\<Ts\>](https://v4.fast-check.dev/docs/api/interfaces/RunDetailsCommon.md): Defined in: [packages/fast-check/src/check/runner/reporter/RunDetails.ts:91](https://github.com/dubzzz/fast-check/blob/c3cd4eb5c42e40bc26a1b74d277e...
+- [Interface: RunDetailsFailureInterrupted\<Ts\>](https://v4.fast-check.dev/docs/api/interfaces/RunDetailsFailureInterrupted.md): Defined in: [packages/fast-check/src/check/runner/reporter/RunDetails.ts:62](https://github.com/dubzzz/fast-check/blob/c3cd4eb5c42e40bc26a1b74d277e...
+- [Interface: RunDetailsFailureProperty\<Ts\>](https://v4.fast-check.dev/docs/api/interfaces/RunDetailsFailureProperty.md): Defined in: [packages/fast-check/src/check/runner/reporter/RunDetails.ts:28](https://github.com/dubzzz/fast-check/blob/c3cd4eb5c42e40bc26a1b74d277e...
+- [Interface: RunDetailsFailureTooManySkips\<Ts\>](https://v4.fast-check.dev/docs/api/interfaces/RunDetailsFailureTooManySkips.md): Defined in: [packages/fast-check/src/check/runner/reporter/RunDetails.ts:45](https://github.com/dubzzz/fast-check/blob/c3cd4eb5c42e40bc26a1b74d277e...
+- [Interface: RunDetailsSuccess\<Ts\>](https://v4.fast-check.dev/docs/api/interfaces/RunDetailsSuccess.md): Defined in: [packages/fast-check/src/check/runner/reporter/RunDetails.ts:78](https://github.com/dubzzz/fast-check/blob/c3cd4eb5c42e40bc26a1b74d277e...
+- [Interface: Scheduler\<TMetaData\>](https://v4.fast-check.dev/docs/api/interfaces/Scheduler.md): Defined in: [packages/fast-check/src/arbitrary/\_internals/interfaces/Scheduler.ts:23](https://github.com/dubzzz/fast-check/blob/c3cd4eb5c42e40bc26...
+- [Interface: SchedulerConstraints](https://v4.fast-check.dev/docs/api/interfaces/SchedulerConstraints.md): Defined in: [packages/fast-check/src/arbitrary/scheduler.ts:12](https://github.com/dubzzz/fast-check/blob/c3cd4eb5c42e40bc26a1b74d277eefb0b2c0a74c/...
+- [Interface: SchedulerReportItem\<TMetaData\>](https://v4.fast-check.dev/docs/api/interfaces/SchedulerReportItem.md): Defined in: [packages/fast-check/src/arbitrary/\_internals/interfaces/Scheduler.ts:164](https://github.com/dubzzz/fast-check/blob/c3cd4eb5c42e40bc2...
+- [Interface: ShuffledSubarrayConstraints](https://v4.fast-check.dev/docs/api/interfaces/ShuffledSubarrayConstraints.md): Defined in: [packages/fast-check/src/arbitrary/shuffledSubarray.ts:9](https://github.com/dubzzz/fast-check/blob/c3cd4eb5c42e40bc26a1b74d277eefb0b2c...
+- [Interface: SparseArrayConstraints](https://v4.fast-check.dev/docs/api/interfaces/SparseArrayConstraints.md): Defined in: [packages/fast-check/src/arbitrary/sparseArray.ts:23](https://github.com/dubzzz/fast-check/blob/c3cd4eb5c42e40bc26a1b74d277eefb0b2c0a74...
+- [Interface: StringSharedConstraints](https://v4.fast-check.dev/docs/api/interfaces/StringSharedConstraints.md): Defined in: [packages/fast-check/src/arbitrary/\_shared/StringSharedConstraints.ts:8](https://github.com/dubzzz/fast-check/blob/c3cd4eb5c42e40bc26a...
+- [Interface: SubarrayConstraints](https://v4.fast-check.dev/docs/api/interfaces/SubarrayConstraints.md): Defined in: [packages/fast-check/src/arbitrary/subarray.ts:9](https://github.com/dubzzz/fast-check/blob/c3cd4eb5c42e40bc26a1b74d277eefb0b2c0a74c/pa...
+- [Interface: UuidConstraints](https://v4.fast-check.dev/docs/api/interfaces/UuidConstraints.md): Defined in: [packages/fast-check/src/arbitrary/uuid.ts:13](https://github.com/dubzzz/fast-check/blob/c3cd4eb5c42e40bc26a1b74d277eefb0b2c0a74c/packa...
+- [Interface: WebAuthorityConstraints](https://v4.fast-check.dev/docs/api/interfaces/WebAuthorityConstraints.md): Defined in: [packages/fast-check/src/arbitrary/webAuthority.ts:55](https://github.com/dubzzz/fast-check/blob/c3cd4eb5c42e40bc26a1b74d277eefb0b2c0a7...
+- [Interface: WebFragmentsConstraints](https://v4.fast-check.dev/docs/api/interfaces/WebFragmentsConstraints.md): Defined in: [packages/fast-check/src/arbitrary/webFragments.ts:10](https://github.com/dubzzz/fast-check/blob/c3cd4eb5c42e40bc26a1b74d277eefb0b2c0a7...
+- [Interface: WebPathConstraints](https://v4.fast-check.dev/docs/api/interfaces/WebPathConstraints.md): Defined in: [packages/fast-check/src/arbitrary/webPath.ts:11](https://github.com/dubzzz/fast-check/blob/c3cd4eb5c42e40bc26a1b74d277eefb0b2c0a74c/pa...
+- [Interface: WebQueryParametersConstraints](https://v4.fast-check.dev/docs/api/interfaces/WebQueryParametersConstraints.md): Defined in: [packages/fast-check/src/arbitrary/webQueryParameters.ts:10](https://github.com/dubzzz/fast-check/blob/c3cd4eb5c42e40bc26a1b74d277eefb0...
+- [Interface: WebSegmentConstraints](https://v4.fast-check.dev/docs/api/interfaces/WebSegmentConstraints.md): Defined in: [packages/fast-check/src/arbitrary/webSegment.ts:11](https://github.com/dubzzz/fast-check/blob/c3cd4eb5c42e40bc26a1b74d277eefb0b2c0a74c...
+- [Interface: WebUrlConstraints](https://v4.fast-check.dev/docs/api/interfaces/WebUrlConstraints.md): Defined in: [packages/fast-check/src/arbitrary/webUrl.ts:20](https://github.com/dubzzz/fast-check/blob/c3cd4eb5c42e40bc26a1b74d277eefb0b2c0a74c/pac...
+- [Interface: WeightedArbitrary\<T\>](https://v4.fast-check.dev/docs/api/interfaces/WeightedArbitrary.md): Defined in: [packages/fast-check/src/arbitrary/oneof.ts:15](https://github.com/dubzzz/fast-check/blob/c3cd4eb5c42e40bc26a1b74d277eefb0b2c0a74c/pack...
+- [Interface: WithCloneMethod\<T\>](https://v4.fast-check.dev/docs/api/interfaces/WithCloneMethod.md): Defined in: [packages/fast-check/src/check/symbols.ts:21](https://github.com/dubzzz/fast-check/blob/c3cd4eb5c42e40bc26a1b74d277eefb0b2c0a74c/packag...
+- [~~Type Alias: AsyncPropertyHookFunction~~](https://v4.fast-check.dev/docs/api/type-aliases/AsyncPropertyHookFunction.md): > **AsyncPropertyHookFunction** = ((`previousHookFunction`) => `Promise`\<`unknown`\>) \| ((`previousHookFunction`) => `void`)
+- [Type Alias: BigIntArrayConstraints](https://v4.fast-check.dev/docs/api/type-aliases/BigIntArrayConstraints.md): > **BigIntArrayConstraints** = `object`
+- [Type Alias: CloneValue\<T, N, Rest\>](https://v4.fast-check.dev/docs/api/type-aliases/CloneValue.md): > **CloneValue**\<`T`, `N`, `Rest`\> = \[`number`\] *extends* \[`N`\] ? `T`[] : `Rest`\[`"length"`\] *extends* `N` ? `Rest` : `CloneValue`\<`T`, `N...
+- [Type Alias: DepthContext](https://v4.fast-check.dev/docs/api/type-aliases/DepthContext.md): > **DepthContext** = `object`
+- [Type Alias: DepthIdentifier](https://v4.fast-check.dev/docs/api/type-aliases/DepthIdentifier.md): > **DepthIdentifier** = `object` & [`DepthContext`](DepthContext.md)
+- [Type Alias: DepthSize](https://v4.fast-check.dev/docs/api/type-aliases/DepthSize.md): > **DepthSize** = `RelativeSize` \| [`Size`](Size.md) \| `"max"` \| `number` \| `undefined`
+- [Type Alias: EntityGraphArbitraries\<TEntityFields\>](https://v4.fast-check.dev/docs/api/type-aliases/EntityGraphArbitraries.md): > **EntityGraphArbitraries**\<`TEntityFields`\> = `{ [TEntityName in keyof TEntityFields]: ArbitraryStructure<TEntityFields[TEntityName]> }`
+- [Type Alias: EntityGraphConstraints\<TEntityFields\>](https://v4.fast-check.dev/docs/api/type-aliases/EntityGraphConstraints.md): > **EntityGraphConstraints**\<`TEntityFields`\> = `object`
+- [~~Type Alias: EntityGraphContraints\<TEntityFields\>~~](https://v4.fast-check.dev/docs/api/type-aliases/EntityGraphContraints.md): > **EntityGraphContraints**\<`TEntityFields`\> = [`EntityGraphConstraints`](EntityGraphConstraints.md)\<`TEntityFields`\>
+- [Type Alias: EntityGraphRelations\<TEntityFields\>](https://v4.fast-check.dev/docs/api/type-aliases/EntityGraphRelations.md): > **EntityGraphRelations**\<`TEntityFields`\> = `{ [TEntityName in keyof TEntityFields]: { [TField in string]: Relationship<keyof TEntityFields> } }`
+- [Type Alias: EntityGraphValue\<TEntityFields, TEntityRelations\>](https://v4.fast-check.dev/docs/api/type-aliases/EntityGraphValue.md): > **EntityGraphValue**\<`TEntityFields`, `TEntityRelations`\> = `{ [TEntityName in keyof EntityGraphSingleValue<TEntityFields, TEntityRelations>]: ...
+- [Type Alias: FalsyValue\<TConstraints\>](https://v4.fast-check.dev/docs/api/type-aliases/FalsyValue.md): > **FalsyValue**\<`TConstraints`\> = `false` \| `null` \| `0` \| `""` \| *typeof* `NaN` \| `undefined` \| `TConstraints` *extends* `object` ? `0n` ...
+- [Type Alias: Float32ArrayConstraints](https://v4.fast-check.dev/docs/api/type-aliases/Float32ArrayConstraints.md): > **Float32ArrayConstraints** = `object` & [`FloatConstraints`](../interfaces/FloatConstraints.md)
+- [Type Alias: Float64ArrayConstraints](https://v4.fast-check.dev/docs/api/type-aliases/Float64ArrayConstraints.md): > **Float64ArrayConstraints** = `object` & [`DoubleConstraints`](../interfaces/DoubleConstraints.md)
+- [Type Alias: GeneratorValue](https://v4.fast-check.dev/docs/api/type-aliases/GeneratorValue.md): > **GeneratorValue** = `GeneratorValueFunction` & `GeneratorValueMethods`
+- [Type Alias: GlobalAsyncPropertyHookFunction](https://v4.fast-check.dev/docs/api/type-aliases/GlobalAsyncPropertyHookFunction.md): > **GlobalAsyncPropertyHookFunction** = (() => `Promise`\<`unknown`\>) \| (() => `void`)
+- [Type Alias: GlobalParameters](https://v4.fast-check.dev/docs/api/type-aliases/GlobalParameters.md): > **GlobalParameters** = `Pick`\<[`Parameters`](../interfaces/Parameters.md)\<`unknown`\>, `Exclude`\<keyof [`Parameters`](../interfaces/Parameters...
+- [Type Alias: GlobalPropertyHookFunction](https://v4.fast-check.dev/docs/api/type-aliases/GlobalPropertyHookFunction.md): > **GlobalPropertyHookFunction** = () => `void`
+- [Type Alias: IntArrayConstraints](https://v4.fast-check.dev/docs/api/type-aliases/IntArrayConstraints.md): > **IntArrayConstraints** = `object`
+- [Type Alias: InterruptAfterTimeLimitOptions](https://v4.fast-check.dev/docs/api/type-aliases/InterruptAfterTimeLimitOptions.md): > **InterruptAfterTimeLimitOptions** = `object`
+- [Type Alias: JsonValue](https://v4.fast-check.dev/docs/api/type-aliases/JsonValue.md): > **JsonValue** = `boolean` \| `number` \| `string` \| `null` \| `JsonArray` \| `JsonObject`
+- [Type Alias: LetrecLooselyTypedBuilder\<T\>](https://v4.fast-check.dev/docs/api/type-aliases/LetrecLooselyTypedBuilder.md): > **LetrecLooselyTypedBuilder**\<`T`\> = (`tie`) => [`LetrecValue`](LetrecValue.md)\<`T`\>
+- [Type Alias: LetrecLooselyTypedTie](https://v4.fast-check.dev/docs/api/type-aliases/LetrecLooselyTypedTie.md): > **LetrecLooselyTypedTie** = (`key`) => [`Arbitrary`](../classes/Arbitrary.md)\<`unknown`\>
+- [Type Alias: LetrecTypedBuilder\<T\>](https://v4.fast-check.dev/docs/api/type-aliases/LetrecTypedBuilder.md): > **LetrecTypedBuilder**\<`T`\> = (`tie`) => [`LetrecValue`](LetrecValue.md)\<`T`\>
+- [Type Alias: LetrecValue\<T\>](https://v4.fast-check.dev/docs/api/type-aliases/LetrecValue.md): > **LetrecValue**\<`T`\> = `{ [K in keyof T]: Arbitrary<T[K]> }`
+- [Type Alias: MaybeWeightedArbitrary\<T\>](https://v4.fast-check.dev/docs/api/type-aliases/MaybeWeightedArbitrary.md): > **MaybeWeightedArbitrary**\<`T`\> = [`Arbitrary`](../classes/Arbitrary.md)\<`T`\> \| [`WeightedArbitrary`](../interfaces/WeightedArbitrary.md)\<`...
+- [Type Alias: Memo\<T\>](https://v4.fast-check.dev/docs/api/type-aliases/Memo.md): > **Memo**\<`T`\> = (`maxDepth?`) => [`Arbitrary`](../classes/Arbitrary.md)\<`T`\>
+- [Type Alias: ModelRunAsyncSetup\<Model, Real\>](https://v4.fast-check.dev/docs/api/type-aliases/ModelRunAsyncSetup.md): > **ModelRunAsyncSetup**\<`Model`, `Real`\> = () => `Promise`\<\{ `model`: `Model`; `real`: `Real`; \}\>
+- [Type Alias: ModelRunSetup\<Model, Real\>](https://v4.fast-check.dev/docs/api/type-aliases/ModelRunSetup.md): > **ModelRunSetup**\<`Model`, `Real`\> = () => `object`
+- [Type Alias: OneOfConstraints](https://v4.fast-check.dev/docs/api/type-aliases/OneOfConstraints.md): > **OneOfConstraints** = `object`
+- [Type Alias: OneOfValue\<Ts\>](https://v4.fast-check.dev/docs/api/type-aliases/OneOfValue.md): > **OneOfValue**\<`Ts`\> = `{ [K in keyof Ts]: Ts[K] extends MaybeWeightedArbitrary<infer U> ? U : never }`\[`number`\]
+- [Type Alias: Plugin\<Ts\>](https://v4.fast-check.dev/docs/api/type-aliases/Plugin.md): > **Plugin**\<`Ts`\> = (`pluginIndex`, `pluginStore`) => [`PluginInstance`](PluginInstance.md)\<`Ts`\>
+- [Type Alias: PluginInstance\<Ts\>](https://v4.fast-check.dev/docs/api/type-aliases/PluginInstance.md): > **PluginInstance**\<`Ts`\> = `object`
+- [Type Alias: PluginStore](https://v4.fast-check.dev/docs/api/type-aliases/PluginStore.md): > **PluginStore** = `object`
+- [Type Alias: PropertyFailure](https://v4.fast-check.dev/docs/api/type-aliases/PropertyFailure.md): > **PropertyFailure** = `object`
+- [~~Type Alias: PropertyHookFunction~~](https://v4.fast-check.dev/docs/api/type-aliases/PropertyHookFunction.md): > **PropertyHookFunction** = (`globalHookFunction`) => `void`
+- [Type Alias: RandomGenerator](https://v4.fast-check.dev/docs/api/type-aliases/RandomGenerator.md): > **RandomGenerator** = `RandomGenerator7x` \| `RandomGenerator8x` \| `JumpableRandomGenerator8x`
+- [Type Alias: RandomType](https://v4.fast-check.dev/docs/api/type-aliases/RandomType.md): > **RandomType** = `"mersenne"` \| `"congruential"` \| `"congruential32"` \| `"xorshift128plus"` \| `"xoroshiro128plus"`
+- [Type Alias: RecordConstraints\<T\>](https://v4.fast-check.dev/docs/api/type-aliases/RecordConstraints.md): > **RecordConstraints**\<`T`\> = `object`
+- [Type Alias: RecordValue\<T, K\>](https://v4.fast-check.dev/docs/api/type-aliases/RecordValue.md): > **RecordValue**\<`T`, `K`\> = `Prettify`\<`Partial`\<`T`\> & `Pick`\<`T`, `K` & keyof `T`\>\>
+- [Type Alias: RunDetails\<Ts\>](https://v4.fast-check.dev/docs/api/type-aliases/RunDetails.md): > **RunDetails**\<`Ts`\> = [`RunDetailsFailureProperty`](../interfaces/RunDetailsFailureProperty.md)\<`Ts`\> \| [`RunDetailsFailureTooManySkips`](....
+- [Type Alias: SchedulerAct](https://v4.fast-check.dev/docs/api/type-aliases/SchedulerAct.md): > **SchedulerAct** = (`f`) => `Promise`\<`void`\>
+- [Type Alias: SchedulerSequenceItem\<TMetaData\>](https://v4.fast-check.dev/docs/api/type-aliases/SchedulerSequenceItem.md): > **SchedulerSequenceItem**\<`TMetaData`\> = \{ `builder`: () => `Promise`\<`any`\>; `label`: `string`; `metadata?`: `TMetaData`; \} \| (() => `Pro...
+- [Type Alias: SetConstraints](https://v4.fast-check.dev/docs/api/type-aliases/SetConstraints.md): > **SetConstraints** = `object`
+- [Type Alias: Size](https://v4.fast-check.dev/docs/api/type-aliases/Size.md): > **Size** = `"xsmall"` \| `"small"` \| `"medium"` \| `"large"` \| `"xlarge"`
+- [Type Alias: SizeForArbitrary](https://v4.fast-check.dev/docs/api/type-aliases/SizeForArbitrary.md): > **SizeForArbitrary** = `RelativeSize` \| [`Size`](Size.md) \| `"max"` \| `undefined`
+- [Type Alias: StringConstraints](https://v4.fast-check.dev/docs/api/type-aliases/StringConstraints.md): > **StringConstraints** = [`StringSharedConstraints`](../interfaces/StringSharedConstraints.md) & `object`
+- [Type Alias: StringMatchingConstraints](https://v4.fast-check.dev/docs/api/type-aliases/StringMatchingConstraints.md): > **StringMatchingConstraints** = `object`
+- [Type Alias: UniqueArrayConstraints\<T, U\>](https://v4.fast-check.dev/docs/api/type-aliases/UniqueArrayConstraints.md): > **UniqueArrayConstraints**\<`T`, `U`\> = [`UniqueArrayConstraintsRecommended`](UniqueArrayConstraintsRecommended.md)\<`T`, `U`\> \| [`UniqueArray...
+- [Type Alias: UniqueArrayConstraintsCustomCompare\<T\>](https://v4.fast-check.dev/docs/api/type-aliases/UniqueArrayConstraintsCustomCompare.md): > **UniqueArrayConstraintsCustomCompare**\<`T`\> = [`UniqueArraySharedConstraints`](UniqueArraySharedConstraints.md) & `object`
+- [Type Alias: UniqueArrayConstraintsCustomCompareSelect\<T, U\>](https://v4.fast-check.dev/docs/api/type-aliases/UniqueArrayConstraintsCustomCompareSelect.md): > **UniqueArrayConstraintsCustomCompareSelect**\<`T`, `U`\> = [`UniqueArraySharedConstraints`](UniqueArraySharedConstraints.md) & `object`
+- [Type Alias: UniqueArrayConstraintsRecommended\<T, U\>](https://v4.fast-check.dev/docs/api/type-aliases/UniqueArrayConstraintsRecommended.md): > **UniqueArrayConstraintsRecommended**\<`T`, `U`\> = [`UniqueArraySharedConstraints`](UniqueArraySharedConstraints.md) & `object`
+- [Type Alias: UniqueArraySharedConstraints](https://v4.fast-check.dev/docs/api/type-aliases/UniqueArraySharedConstraints.md): > **UniqueArraySharedConstraints** = `object`
+- [Type Alias: WithAsyncToStringMethod](https://v4.fast-check.dev/docs/api/type-aliases/WithAsyncToStringMethod.md): > **WithAsyncToStringMethod** = `object`
+- [Type Alias: WithToStringMethod](https://v4.fast-check.dev/docs/api/type-aliases/WithToStringMethod.md): > **WithToStringMethod** = `object`
+- [Variable: asyncToStringMethod](https://v4.fast-check.dev/docs/api/variables/asyncToStringMethod.md): > `const` **asyncToStringMethod**: unique `symbol`
+- [Variable: cloneMethod](https://v4.fast-check.dev/docs/api/variables/cloneMethod.md): > `const` **cloneMethod**: unique `symbol`
+- [Variable: \_\_commitHash](https://v4.fast-check.dev/docs/api/variables/commitHash.md): > `const` **\_\_commitHash**: `string`
+- [Variable: toStringMethod](https://v4.fast-check.dev/docs/api/variables/toStringMethod.md): > `const` **toStringMethod**: unique `symbol`
+- [Variable: \_\_type](https://v4.fast-check.dev/docs/api/variables/type.md): > `const` **\_\_type**: `string`
+- [Variable: \_\_version](https://v4.fast-check.dev/docs/api/variables/version.md): > `const` **\_\_version**: `string`
+- [Custom reports](https://v4.fast-check.dev/configuration/custom-reports.md): Customize how to report failures.
+- [Global settings](https://v4.fast-check.dev/configuration/global-settings.md): Share settings cross runners.
+- [Configuration](https://v4.fast-check.dev/docs/configuration.md): Tune fast-check — seeds, number of runs, entry sizes, timeouts, reports — per assertion or globally, with clear precedence rules.
+- [Larger entries by default](https://v4.fast-check.dev/configuration/larger-entries-by-default.md): Customize the default "good enough" size for your tests.
+- [Timeouts](https://v4.fast-check.dev/configuration/timeouts.md): Learn about the various timeout options available in the fast-check.
+- [User definable values](https://v4.fast-check.dev/configuration/user-definable-values.md): Snapshot errors previously encountered and ask for help to reduce cases.
+- [Any](https://v4.fast-check.dev/core-blocks/arbitraries/combiners/any.md): Combine and enhance any existing arbitraries.
+- [Constant](https://v4.fast-check.dev/core-blocks/arbitraries/combiners/constant.md): Promote any set of constant values to arbitraries.
+- [Combiners](https://v4.fast-check.dev/core-blocks/arbitraries/combiners.md): Transform and compose existing arbitraries — pick among them, constrain them, tie them together recursively or promote plain values into generators.
+- [Recursive Structure](https://v4.fast-check.dev/core-blocks/arbitraries/combiners/recursive-structure.md): Define arbitraries able to generate recursive structures.
+- [String](https://v4.fast-check.dev/core-blocks/arbitraries/combiners/string.md): Combine and enhance existing string arbitraries.
+- [Array](https://v4.fast-check.dev/core-blocks/arbitraries/composites/array.md): Generate array values.
+- [Function](https://v4.fast-check.dev/core-blocks/arbitraries/composites/function.md): Generate functions.
+- [Composites](https://v4.fast-check.dev/core-blocks/arbitraries/composites.md): Combine smaller arbitraries into arrays, objects, iterables, functions and typed arrays — with size control and two-dimensional shrinking.
+- [Iterable](https://v4.fast-check.dev/core-blocks/arbitraries/composites/iterable.md): Generate iterable values.
+- [Object](https://v4.fast-check.dev/core-blocks/arbitraries/composites/object.md): Generate object values.
+- [Typed Array](https://v4.fast-check.dev/core-blocks/arbitraries/composites/typed-array.md): Generate typed array values.
+- [File](https://v4.fast-check.dev/core-blocks/arbitraries/fake-data/file.md): Generate file content values.
+- [Identifier](https://v4.fast-check.dev/core-blocks/arbitraries/fake-data/identifier.md): Generate identifier values.
+- [Fake Data](https://v4.fast-check.dev/core-blocks/arbitraries/fake-data.md): Ready-made generators for realistic-shape values — UUIDs, emails, URLs, IPs, filenames — when your code branches on the shape of its inputs.
+- [Internet](https://v4.fast-check.dev/core-blocks/arbitraries/fake-data/internet.md): Generate internet related values.
+- [Arbitraries](https://v4.fast-check.dev/core-blocks/arbitraries.md): Every arbitrary in fast-check is a generator paired with a shrinker. This page explains that contract and helps you pick the right family for your ...
+- [Others](https://v4.fast-check.dev/core-blocks/arbitraries/others.md): Several other arbitraries.
+- [BigInt](https://v4.fast-check.dev/core-blocks/arbitraries/primitives/bigint.md): Generate bigint values.
+- [Boolean](https://v4.fast-check.dev/core-blocks/arbitraries/primitives/boolean.md): Generate boolean values.
+- [Date](https://v4.fast-check.dev/core-blocks/arbitraries/primitives/date.md): Generate date values.
+- [Primitives](https://v4.fast-check.dev/core-blocks/arbitraries/primitives.md): The base arbitraries fast-check builds every other generator on — strings, numbers, booleans, dates and bigints, with their canonical shrink targets.
+- [Number](https://v4.fast-check.dev/core-blocks/arbitraries/primitives/number.md): Generate numeric values.
+- [String](https://v4.fast-check.dev/core-blocks/arbitraries/primitives/string.md): Generate string values.
+- [Core Blocks](https://v4.fast-check.dev/docs/core-blocks.md): The three reference building blocks of fast-check — arbitraries, properties and runners — and how they fit together into a single test.
+- [Plugins](https://v4.fast-check.dev/core-blocks/plugins.md): Extend the default execution flow provided by runners to meet your needs.
+- [Life-cycle](https://v4.fast-check.dev/core-blocks/plugins/life-cycle.md): Life-cycle plugins provide hooks to prepare or clean up things for your predicates. They wrap every execution of the predicate including the ones l...
+- [Time limits](https://v4.fast-check.dev/core-blocks/plugins/time-limits.md): Time-limit plugins bound the time spent assessing your properties. They can come into play at various levels, from an isolated execution of a predi...
+- [Values](https://v4.fast-check.dev/core-blocks/plugins/values.md): Value plugins customize which values get forwarded to your predicates. Bias plugins customize how generation targets values, while equal-values plu...
+- [Properties](https://v4.fast-check.dev/core-blocks/properties.md): Define your properties.
+- [Runners](https://v4.fast-check.dev/core-blocks/runners.md): Execute your properties.
+- [🌱 Ecosystem](https://v4.fast-check.dev/docs/ecosystem.md): Bring additional capabilities to fast-check by leveraging its rich ecosystem of extensions and plugins
+- [Getting Started](https://v4.fast-check.dev/introduction/getting-started.md): Get started with fast-check in an existing project.
+- [Introduction](https://v4.fast-check.dev/docs/introduction.md): Start here — what property-based testing is, why fast-check exists, who already trusts it and how to install it in your project.
+- [Track Record](https://v4.fast-check.dev/introduction/track-record.md): Some examples of key projects with bugs detected by fast-check
+- [What is Property-Based Testing?](https://v4.fast-check.dev/introduction/what-is-property-based-testing.md): Learn the basic concepts behind the approach.
+- [Why Property-Based Testing?](https://v4.fast-check.dev/introduction/why-property-based.md): Learn about the benefits and advantages of property-based testing. If you have never encountered property-based testing before, it is best to start...
+- [From 3.x to 4.x](https://v4.fast-check.dev/migration-guide/from-3.x-to-4.x.md): Simple migration guide to fast-check v4 starting from fast-check v3
+- [Support us](https://v4.fast-check.dev/docs/support-us.md): There are many ways you can contribute to fast-check:
+- [Detect race conditions](https://v4.fast-check.dev/tutorials/detect-race-conditions.md): What's the plan for this tutorial?
+- [Multiple batches of calls](https://v4.fast-check.dev/tutorials/detect-race-conditions/multiple-batches-of-calls.md): Third iteration, not only one batch firing all queries but multiple batches
+- [One step closer to real usages](https://v4.fast-check.dev/tutorials/detect-race-conditions/one-step-closer-to-real-usages.md): Second iteration, make the test closer and detect even more race conditions
+- [The missing part](https://v4.fast-check.dev/tutorials/detect-race-conditions/the-missing-part.md): Fourth iteration, check all the points of the specification
+- [Wrapping up](https://v4.fast-check.dev/tutorials/detect-race-conditions/wrapping-up.md): Key learnings and summary of all our steps
+- [Your first race condition test](https://v4.fast-check.dev/tutorials/detect-race-conditions/your-first-race-condition-test.md): First iteration, build your first test able to detect race conditions
+- [Tutorials](https://v4.fast-check.dev/docs/tutorials.md): Hands-on tutorials to learn Property-Based Testing with fast-check — from your very first test to detecting real-world race conditions.
+- [Basic Setup](https://v4.fast-check.dev/tutorials/quick-start/basic-setup.md): Setup your environment
+- [Quick Start](https://v4.fast-check.dev/tutorials/quick-start.md): A three-step linear walkthrough — set up a project, write your first property and learn how to read the report fast-check prints on failure.
+- [Our first Property-Based Test](https://v4.fast-check.dev/tutorials/quick-start/our-first-property-based-test.md): Write your first test
+- [Read test reports](https://v4.fast-check.dev/tutorials/quick-start/read-test-reports.md): Read and troubleshoot test report
+- [Setting up your Test Environment](https://v4.fast-check.dev/tutorials/setting-up-your-test-environment.md): Discover step-by-step guides to configure your test environment for Property-Based Testing in JavaScript and TypeScript. Learn best practices
+- [Property Based Testing — Manual setup](https://v4.fast-check.dev/tutorials/setting-up-your-test-environment/property-based-testing-manual-setup.md): Set up fast-check with any JavaScript or TypeScript test runner. Learn the runner-agnostic patterns for writing synchronous and asynchronous proper...
+- [Property Based Testing with Bun test runner](https://v4.fast-check.dev/tutorials/setting-up-your-test-environment/property-based-testing-with-bun-test-runner.md): Enrich Bun test runner with Property-Based Testing capabilities. Discover best practices to setup fast-check for it
+- [Property Based Testing with Deno test runner](https://v4.fast-check.dev/tutorials/setting-up-your-test-environment/property-based-testing-with-deno-test-runner.md): Bring Property-Based Testing capabilities into Deno with fast-check
+- [Property Based Testing with Jest](https://v4.fast-check.dev/tutorials/setting-up-your-test-environment/property-based-testing-with-jest.md): Discover how to configure the integration of Property-Based Testing capabilities within Jest. Learn best practices to setup fast-check for it
+- [Property Based Testing with Node.js test runner](https://v4.fast-check.dev/tutorials/setting-up-your-test-environment/property-based-testing-with-nodejs-test-runner.md): Extend the Node.js test runner with Property-Based Testing capabilities. Discover best practices to setup fast-check for it
+- [Property Based Testing with Vitest](https://v4.fast-check.dev/tutorials/setting-up-your-test-environment/property-based-testing-with-vitest.md): Discover how to configure the integration of Property-Based Testing capabilities within Vitest. Learn best practices to set up fast-check for it
