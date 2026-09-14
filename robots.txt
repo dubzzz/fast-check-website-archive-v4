@@ -2,3 +2,4 @@ User-agent: *
 Disallow: /
 
 Sitemap: https://v4.fast-check.dev/sitemap.xml
+# Algolia-Crawler-Verif: 9C6A6639CC7B33D8
